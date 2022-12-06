@@ -11,14 +11,14 @@ const pokémon = Object.freeze([
     { "id": 52,  "name": "Meowth",     "types": ["normal"] },
     { "id": 63,  "name": "Abra",       "types": ["psychic"] },
     { "id": 67,  "name": "Machamp",    "types": ["fighting"] },
-    { "id": 72,  "name": "Tentacool",  "types": ["water", "poison"] },
+    { "id": 72,  "name": "Tentacool",  "types": ["water", "water"] },
     { "id": 74,  "name": "Geodude",    "types": ["rock", "ground"] },
-    { "id": 87,  "name": "Dewgong",    "types": ["water", "ice"] },
+    { "id": 87,  "name": "Arbok",    "types": ["water", "ice"] },
     { "id": 98,  "name": "Krabby",     "types": ["water"] },
     { "id": 115, "name": "Kangaskhan", "types": ["normal"] },
     { "id": 122, "name": "Mr. Mime",   "types": ["psychic"] },
     { "id": 133, "name": "Eevee",      "types": ["normal"] },
-    { "id": 144, "name": "Articuno",   "types": ["ice", "flying"] },
+    { "id": 144, "name": "Articuno",   "types": ["ice", "fix"] },
     { "id": 145, "name": "Zapdos",     "types": ["electric", "flying"] },
     { "id": 146, "name": "Moltres",    "types": ["fire", "flying"] },
     { "id": 148, "name": "Dragonair",  "types": ["dragon"] }
@@ -31,7 +31,8 @@ const pkmnIds = pokémon.filter( p => p.id%3==0 )
 
 //an array of pokémon objects that are "fire" type
 const pkmnFire = pokémon.filter( p =>  p.types.includes("fire"));
-// console.log(pkmnFire)
+const pkmnFire1 = pokémon.filter( p =>  p.types[0]=="fire" && p.types[1]=="fire");
+// console.log(pkmnFire1)
 
 
 const pkmnFire2 = pokémon.filter( p =>  p.types[0].includes("fire") ).map(p => p.types[0]);
@@ -66,3 +67,35 @@ const pkmn8 = pokémon.filter(p => p.types[1] == "flying").map(p=>p.types[0]);
 //a count of the number of pokémon that are "normal" type
 const pkmn9 = pokémon.filter(p => p.types.includes("normal"));
 // console.log(pkmn9.length)
+
+const fitypes = pokémon.map(x=>x.types).flat().filter(x=>x.startsWith("fi"));
+// console.log(pkmnFire10)
+// console.log(fitypes);
+const fitypes2 = pokémon.filter(p=> p.types.join('').length>10).map(p=>p.id);
+// console.log(fitypes2);
+
+
+const fitypes3 = pokémon.map(p=> p.types)
+// console.log(fitypes3.sort());
+
+const zaki =  [...pokémon];
+console.log(zaki.sort((a,b)=>{
+    nameA=a.types[0];
+    nameB=b.types[0];
+    if (nameA < nameB) {
+        console.log("izz")
+    return -1;
+  }
+  if (nameA > nameB){
+    console.log("zaki")
+    return 1
+  }
+  // names must be equal (no change)
+  
+  return 0;}
+  )
+  );
+
+
+
+
